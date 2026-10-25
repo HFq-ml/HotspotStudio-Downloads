@@ -3,156 +3,87 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>热点工坊 - Windows 下载</title>
-  <meta name="description" content="热点工坊 v9.2.0 Windows 安装版与便携版官方下载页。">
+  <title>Tidea · AI Creation Studio</title>
+  <meta name="description" content="Tidea AI 图文与小说创作台：看见热点，写成作品。">
   <style>
-    :root {
-      --green: #357e58;
-      --green-dark: #225b3d;
-      --mint: #e8f5ed;
-      --ink: #20342a;
-      --muted: #64766c;
-      --line: #d9e7de;
-      --paper: #fffefa;
-    }
-    * { box-sizing: border-box; }
+    :root { --green:#2c7a5b; --dark:#205b43; --mint:#dff4e7; --paper:#fffefa; --ink:#20352a; --muted:#687b70; --line:#dceade; }
+    * { box-sizing:border-box; }
     body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--ink);
-      font-family: "Microsoft YaHei UI", "PingFang SC", sans-serif;
-      background:
-        radial-gradient(circle at 12% 8%, rgba(178, 224, 195, .48), transparent 30%),
-        radial-gradient(circle at 88% 80%, rgba(255, 224, 189, .35), transparent 28%),
-        linear-gradient(145deg, #f5fbf7, #eef7f1 55%, #faf8f1);
+      margin:0; min-height:100vh; color:var(--ink);
+      font-family:"Microsoft YaHei UI","PingFang SC",sans-serif;
+      background:radial-gradient(circle at 15% 10%,rgba(194,234,208,.65),transparent 32%),
+                 radial-gradient(circle at 90% 85%,rgba(255,236,190,.45),transparent 30%),
+                 linear-gradient(145deg,#f6fbf7,#edf7f0);
     }
-    main { width: min(1060px, calc(100% - 32px)); margin: 0 auto; padding: 56px 0 72px; }
-    .hero {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 44px;
-      align-items: center;
+    main { width:min(1040px,calc(100% - 32px)); margin:auto; padding:65px 0 76px; }
+    .hero { display:grid; grid-template-columns:1.05fr .95fr; gap:50px; align-items:center; }
+    .icon {
+      position:relative; width:62px; height:62px; overflow:hidden; border-radius:20px;
+      background:var(--mint); box-shadow:0 12px 30px rgba(44,122,91,.15);
     }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 13px;
-      border: 1px solid #c5dece;
-      border-radius: 999px;
-      background: rgba(255,255,255,.68);
-      color: var(--green-dark);
-      font-size: 14px;
-      font-weight: 700;
+    .icon:before { content:""; position:absolute; left:-10px; right:-10px; bottom:-6px; height:34px; border-radius:50% 50% 0 0; background:linear-gradient(135deg,#78c596,#2c7a5b); transform:rotate(-7deg); }
+    .icon:after { content:"✦"; position:absolute; top:4px; right:9px; color:#fff; font-size:25px; }
+    h1 { margin:19px 0 8px; font-size:clamp(48px,8vw,82px); letter-spacing:-.06em; }
+    .tagline { color:var(--dark); font-size:23px; font-weight:800; }
+    .lead { max-width:560px; color:var(--muted); font-size:19px; line-height:1.8; }
+    .status { display:inline-flex; align-items:center; gap:9px; margin-top:26px; padding:11px 15px; border:1px solid #bfddca; border-radius:999px; background:rgba(255,255,255,.75); color:var(--dark); font-size:14px; font-weight:700; }
+    .status i { width:9px; height:9px; border-radius:50%; background:#48a873; box-shadow:0 0 0 5px rgba(72,168,115,.12); }
+    .phone {
+      position:relative; min-height:520px; padding:28px; border:1px solid rgba(209,227,215,.95);
+      border-radius:38px; background:rgba(255,255,255,.72); box-shadow:0 30px 80px rgba(40,90,64,.16);
+      backdrop-filter:blur(20px);
     }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: #47a774; box-shadow: 0 0 0 5px rgba(71,167,116,.12); }
-    h1 { margin: 22px 0 16px; font-size: clamp(42px, 7vw, 74px); line-height: 1.08; letter-spacing: -.055em; }
-    .lead { max-width: 620px; color: var(--muted); font-size: 20px; line-height: 1.8; }
-    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 54px;
-      padding: 0 24px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-size: 17px;
-      font-weight: 800;
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .primary { background: var(--green); color: white; box-shadow: 0 12px 28px rgba(53,126,88,.24); }
-    .secondary { border: 1px solid var(--line); background: rgba(255,255,255,.8); color: var(--green-dark); }
-    .version { margin-top: 16px; color: #7d8b83; font-size: 14px; }
-    .app-card {
-      position: relative;
-      min-height: 430px;
-      padding: 24px;
-      overflow: hidden;
-      border: 1px solid rgba(211,228,218,.9);
-      border-radius: 30px;
-      background: rgba(255,255,255,.72);
-      box-shadow: 0 28px 70px rgba(54,92,70,.14);
-      backdrop-filter: blur(18px);
-    }
-    .app-card:before {
-      content: "";
-      position: absolute;
-      inset: 64px 38px auto;
-      height: 245px;
-      border-radius: 22px;
-      background: linear-gradient(145deg, #d8f0df, #f9f6eb);
-    }
-    .window { position: relative; z-index: 1; display: flex; gap: 6px; margin: 5px 4px 42px; }
-    .window i { width: 9px; height: 9px; border-radius: 50%; background: #aac1b2; }
-    .features {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin: 0 12px;
-    }
-    .feature { padding: 18px; border: 1px solid #e1eae4; border-radius: 16px; background: rgba(255,255,255,.88); }
-    .feature b { display: block; margin-bottom: 5px; color: var(--green-dark); font-size: 16px; }
-    .feature span { color: var(--muted); font-size: 13px; line-height: 1.55; }
-    .info { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 38px; }
-    .panel { padding: 24px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.66); }
-    .panel h2 { margin: 0 0 12px; font-size: 20px; }
-    .panel p, .panel li { color: var(--muted); font-size: 15px; line-height: 1.75; }
-    .panel ul { margin: 0; padding-left: 20px; }
-    footer { margin-top: 34px; color: #849088; font-size: 13px; text-align: center; }
-    code { padding: 2px 5px; border-radius: 5px; background: #eef4f0; color: #365a46; }
-    @media (max-width: 820px) {
-      main { padding-top: 30px; }
-      .hero, .info { grid-template-columns: 1fr; }
-      .app-card { min-height: 360px; }
-      h1 { font-size: 48px; }
-      .lead { font-size: 18px; }
-    }
+    .phone-bar { display:flex; gap:6px; margin-bottom:25px; }
+    .phone-bar i { width:9px; height:9px; border-radius:50%; background:#b7cdbf; }
+    .phone h2 { margin:0 0 10px; font-size:30px; letter-spacing:-.04em; }
+    .phone p { margin:0 0 22px; color:var(--muted); line-height:1.7; }
+    .feature-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .feature { min-height:102px; padding:17px; border:1px solid var(--line); border-radius:17px; background:rgba(255,255,255,.9); }
+    .feature b { display:block; margin-bottom:6px; color:var(--dark); font-size:16px; }
+    .feature span { color:var(--muted); font-size:13px; line-height:1.5; }
+    .notes { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:40px; }
+    .note { padding:24px; border:1px solid var(--line); border-radius:20px; background:rgba(255,255,255,.65); }
+    .note h3 { margin:0 0 10px; }
+    .note p, .note li { color:var(--muted); font-size:15px; line-height:1.75; }
+    a { color:var(--green); font-weight:700; }
+    footer { margin-top:35px; color:#859289; font-size:13px; text-align:center; }
+    @media(max-width:800px){ .hero,.notes{grid-template-columns:1fr;} main{padding-top:35px;} .phone{min-height:auto;} }
   </style>
 </head>
 <body>
   <main>
     <section class="hero">
       <div>
-        <span class="badge"><i class="dot"></i> Windows 10 / 11</span>
-        <h1>热点工坊</h1>
-        <p class="lead">新闻阅读、AI 图文、原创小说与视频创作工作台。Windows 版本正在接受安全复核，Android 华为兼容版正在制作。</p>
-        <div class="actions">
-          <span class="btn primary" aria-disabled="true">Windows 版安全复核中</span>
-          <span class="btn secondary" aria-disabled="true">Android 版制作中</span>
-        </div>
-        <p class="version">为避免下载到被安全软件拦截的版本，当前已暂停公开下载</p>
+        <div class="icon" aria-hidden="true"></div>
+        <h1>Tidea</h1>
+        <div class="tagline">看见热点，写成作品</div>
+        <p class="lead">Tidea 是一款轻量的 AI 图文与小说创作工具。从公开热点开始，生成微新闻、深度文章和原创小说，并保存到自己的作品库。</p>
+        <div class="status"><i></i>Android 版正在准备华为应用市场发布</div>
       </div>
-      <div class="app-card" aria-label="软件功能预览">
-        <div class="window"><i></i><i></i><i></i></div>
-        <div class="features">
-          <div class="feature"><b>实时资讯</b><span>浏览并抓取公开网页素材</span></div>
-          <div class="feature"><b>AI 写作</b><span>图文、微新闻与原创小说</span></div>
-          <div class="feature"><b>章节导航</b><span>点击目录直达对应正文</span></div>
-          <div class="feature"><b>视频创作</b><span>原片剪辑与发布前编辑</span></div>
+      <div class="phone" aria-label="Tidea 功能预览">
+        <div class="phone-bar"><i></i><i></i><i></i></div>
+        <h2>从灵感到成品</h2>
+        <p>简洁的小清新界面，让资讯、创作与作品管理集中在一个应用里。</p>
+        <div class="feature-grid">
+          <div class="feature"><b>热点资讯</b><span>搜索并打开公开内容来源</span></div>
+          <div class="feature"><b>AI 图文</b><span>微新闻、短文与深度文章</span></div>
+          <div class="feature"><b>原创小说</b><span>短篇、中篇与长篇规划</span></div>
+          <div class="feature"><b>作品管理</b><span>本地保存、复制与分享</span></div>
         </div>
       </div>
     </section>
-
-    <section class="info">
-      <div class="panel">
-        <h2>首次使用</h2>
-        <ul>
-          <li>下载便携版并完整解压，双击其中的 <code>HotspotStudio.exe</code>。</li>
-          <li>保持电脑联网，在软件设置中填写自己的 AI API Key。</li>
-          <li>需要读取网页素材时，按界面提示启用 Edge 扩展。</li>
-        </ul>
+    <section class="notes">
+      <div class="note">
+        <h3>应用信息</h3>
+        <p>应用名称：Tidea<br>版本：1.0.0<br>兼容系统：Android 6.0 及以上<br>发布平台：华为应用市场</p>
       </div>
-      <div class="panel">
-        <h2>下载安全</h2>
-        <p>Windows 主程序触发安全软件机器学习拦截，已停止公开分发。请勿关闭杀毒软件强制运行旧版本。</p>
-        <p>完成安全复核、代码签名或 Android 独立版本测试后，再恢复下载。</p>
+      <div class="note">
+        <h3>隐私与收费</h3>
+        <p>API Key 和作品只保存在当前设备。付费下载、价格和购买凭证由华为应用市场统一处理。</p>
+        <p><a href="privacy.html">查看 Tidea 隐私政策</a></p>
       </div>
     </section>
-    <footer>热点工坊 · 官方版本下载页</footer>
+    <footer>Tidea · AI Creation Studio</footer>
   </main>
 </body>
 </html>
